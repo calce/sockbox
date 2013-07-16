@@ -9,7 +9,7 @@
   },
   "development": {},
   "license": "MIT",
-  "main": "index.coffee",
+  "main": "index.js",
   "scripts": [
     "index.coffee", "engine.coffee"
   ]

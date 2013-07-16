@@ -1,7 +1,8 @@
-if process.env.NODE_ENV = 'test'
-  packets = require './components/calce-packets'
-else
+if typeof(process) is "undefined"
   packets = require 'packets'
+else
+  if process.env.NODE_ENV is 'test'
+    packets = require './components/calce-packets'
 
 engine = module.exports =
   _commands: {}
