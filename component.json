@@ -3,8 +3,9 @@
   "repo": "calce/sockbox",
   "description": "",
   "version": "0.0.1",
-  "keywords": [],
+  "keywords": ["socket.io"],
   "dependencies": {
+    "calce/packets":"0.x"
   },
   "development": {},
   "license": "MIT",

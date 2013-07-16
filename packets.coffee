@@ -11,5 +11,4 @@ packets.toObject = (o) ->
     console.log "json parse error: #{o} "
 
 packets.emit = (socket, cmd, data) ->
-  # TODO: flood control
   socket.emit cmd, @toString data

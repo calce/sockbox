@@ -1,11 +1,30 @@
+MOCHA_OPTS= --check-leaks --compilers coffee:coffee-script
+REPORTER = list
+TIMEOUT = --timeout 10000
 
-build: components index.js
-	@component build --dev
+check: test
 
-components: component.json
-	@component install --dev
+test: test-unit
+
+test-unit:
+	@SOCKBOX=test ./node_modules/.bin/mocha \
+		$(TIMEOUT) --reporter $(REPORTER) \
+		$(MOCHA_OPTS)
+
+test-cov: lib-cov
+	@GAMES_COV=1 $(MAKE) test REPORTER=html-cov > coverage.html
+
+lib-cov:
+	@jscoverage lib lib-cov
+
+benchmark:
+	@./support/bench
 
 clean:
-	rm -fr build components template.js
+	rm -f coverage.html
+	rm -fr lib-cov
 
-.PHONY: clean
+.PHONY: test test-unit benchmark clean
+
+compile:
+	coffee -bw -o ./lib -c .
