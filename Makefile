@@ -7,7 +7,7 @@ check: test
 test: test-unit
 
 test-unit:
-	@SOCKBOX=test ./node_modules/.bin/mocha \
+	@NODE_ENV=test ./node_modules/.bin/mocha \
 		$(TIMEOUT) --reporter $(REPORTER) \
 		$(MOCHA_OPTS)
 

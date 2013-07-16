@@ -1,4 +1,8 @@
-packets = require './packets'
+if process.env.NODE_ENV = 'test'
+  packets = require './components/calce-packets'
+else
+  packets = require 'packets'
+
 engine = module.exports =
   _commands: {}
   _plugins: []

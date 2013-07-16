@@ -1,6 +1,5 @@
 should = require 'should'
 EventEmitter = require('events').EventEmitter
-packets = require '../packets'
 
 merge = (a, b) ->
   if a and b
@@ -32,5 +31,5 @@ describe 'engine', ->
   engine.init io
   engine.use 'omg', plugin
   engine.socket.emit 'connect', socket
-  packets.emit socket, 'omg', {code:"1"}
+  engine.socket.emit 'omg', JSON.stringify({code:"1"})
   engine.socket.emit 'disconnect', socket
